@@ -18,20 +18,20 @@ st.set_page_config(page_title="민우동행 로또", page_icon="🍀", layout="c
 
 st.markdown("""
     <style>
-    /* 1. 컬럼들을 감싸는 컨테이너를 가로 정렬(row)로 강제 고정 */
-    [data-testid="column"] {
-        width: calc(16.6% - 5px) !important; /* 6등분 비율 강제 */
-        flex: 1 1 0% !important;
-        min-width: 40px !important; /* 공이 찌그러지지 않는 최소폭 */
-    }
-    
-    /* 2. Streamlit의 기본 가로 정렬 컨테이너 속성 강화 */
+    /* 1. 컬럼들을 한 줄로 강제 고정하고 왼쪽으로 밀착 */
     [data-testid="stHorizontalBlock"] {
         display: flex !important;
-        flex-direction: row !important; /* 세로로 꺾이는 현상 방지 */
-        flex-wrap: nowrap !important; /* 줄바꿈 절대 방지 */
-        align-items: center !important;
-        justify-content: space-between !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        justify-content: flex-start !important; /* 왼쪽 정렬로 밀착 */
+        gap: 5px !important; /* 공 사이의 간격을 5px로 고정 */
+    }
+    
+    /* 2. 각 컬럼의 너비를 공 크기에 딱 맞게 조절 */
+    [data-testid="column"] {
+        width: 36px !important; /* 공 크기(34px)보다 약간 크게 */
+        flex: 0 0 auto !important; /* 칸이 늘어나지 않게 고정 */
+        min-width: 36px !important;
     }
 
     /* 3. 모바일 화면 여백 최소화 */
@@ -41,12 +41,17 @@ st.markdown("""
         padding-top: 1rem !important;
     }
 
-    /* 4. 게임 라벨(Game A)과 공 사이의 간격 줄이기 */
+    /* 4. 게임 사이 간격 및 라벨 여백 줄이기 (한 화면에 넣기 위해) */
+    .element-container {
+        margin-bottom: 0px !important;
+    }
     .stMarkdown p {
-        margin-bottom: 2px !important;
+        margin-bottom: -5px !important; /* 라벨과 공 사이 간격 축소 */
+        font-size: 0.9rem !important;
     }
     </style>
     """, unsafe_allow_html=True)
+
 
 
 # 2. 로또 추출 로직 (기계적 무작위성 유지)
