@@ -61,7 +61,7 @@ def get_color(n):
     return "#b0d840"
 
 # 3. 화면 UI 구성
-st.title(" 🍀 민우동행 행운의 LOTTO 🍀 ", font=("맑은 고딕", 20, "bold") )
+st.title(" 🍀 민우동행 행운의 LOTTO 🍀 ", font=("맑은 고딕", 11, "bold") )
 st.write(f"현재 시간: {current_time}")
 st.write("---")
 
