@@ -61,7 +61,7 @@ if st.button("✨ 행운의 번호 생성하기", type="primary", use_container_
                     box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
                 ">{n}</div>
                 """, unsafe_allow_html=True)
-        st.write("10") # 간격 조절
+        st.write("") # 간격 조절
 
 st.write("---")
 st.caption("본 프로그램은 기계적 무작위성 알고리즘을 사용합니다.")
