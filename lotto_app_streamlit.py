@@ -18,47 +18,62 @@ st.set_page_config(page_title="민우동행 로또", page_icon="🍀", layout="c
 
 st.markdown("""
     <style>
-    /* 1. 컬럼을 감싸는 전체 박스를 왼쪽으로 모으기 */
+    /* 1. 웹사이트의 느낌을 지우고 앱처럼 전체 너비 활용 */
+    .block-container {
+        max-width: 100% !important;
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+        padding-top: 1rem !important;
+        padding-bottom: 1rem !important;
+    }
+
+    /* 2. 제목과 텍스트 크기를 모바일에 맞게 축소 */
+    h1 {
+        font-size: 1.5rem !important;
+        text-align: center;
+    }
+    .stMarkdown p {
+        font-size: 0.9rem !important;
+        margin-bottom: -15px !important; /* 라벨과 공 사이 밀착 */
+        padding-left: 5px;
+    }
+
+    /* 3. [핵심] 공들을 가로로 옹기종기 모으기 (모바일 강제 정렬) */
     [data-testid="stHorizontalBlock"] {
         display: flex !important;
-        flex-direction: row !important; /* 무조건 가로 */
-        flex-wrap: nowrap !important;   /* 줄바꿈 절대 방지 */
-        justify-content: center !important; /* 왼쪽으로 밀착 */
-        width: fit-content !important;  /* 내용물만큼만 너비 차지(핵심) */
-        gap: 1px !important;            /* 공 사이의 간격 */
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        justify-content: flex-start !important; /* 왼쪽으로 정렬 */
+        gap: 2px !important; /* 공 사이의 미세한 간격 */
+        width: 100% !important;
     }
     
-    /* 2. 각 컬럼(공이 들어있는 칸)의 너비를 최소화 */
+    /* 4. 각 컬럼의 너비를 공 크기에 딱 맞게 고정 */
     [data-testid="column"] {
-        flex: 0 0 auto !important;      /* 늘어나지 않게 고정 */
-        width: 42px !important;         /* 칸 너비를 42px로 고정 */
-        min-width: 42px !important;
-        max-width: 42px !important;
+        flex: 0 0 auto !important;
+        width: 40px !important; /* 공 크기 34px + 여백 6px */
+        min-width: 40px !important;
     }
 
-    /* 3. Streamlit 기본 여백들 강제 제거 */
-    [data-testid="stVerticalBlock"] > div {
-        padding: 0 !important;
+    /* 5. 버튼을 화면 너비에 꽉 차게 */
+    .stButton button {
+        width: 100% !important;
+        border-radius: 10px !important;
+        height: 3rem !important;
     }
 
-    /* 4. 모바일 화면 좌우 여백 최소화 */
-    .block-container {
-        padding-left: fit-content !important;
-        padding-right: fit-content !important;
-        padding-top: 1rem !important;
+    /* 6. 불필요한 위쪽 여백(헤더) 제거 */
+    header {
+        visibility: hidden;
     }
-
-    /* 5. 게임 라벨(A 자동) 여백 줄이기 */
-    .stMarkdown p {
-        margin-bottom: -8px !important;
-        margin-top: 5px !important;
-        font-weight: bold;
-        font-size: 14px;
+    #MainMenu {
+        visibility: hidden;
+    }
+    footer {
+        visibility: hidden;
     }
     </style>
     """, unsafe_allow_html=True)
-
-
 
 
 
