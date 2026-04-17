@@ -18,40 +18,43 @@ st.set_page_config(page_title="민우동행 로또", page_icon="🍀", layout="c
 
 st.markdown("""
     <style>
-    /* 1. 공들을 감싸는 컨테이너: 모바일 세로 꺾임 현상 절대 방지 */
+    /* 1. 전체 컨테이너를 가로로 꽉 채우고 줄바꿈 방지 */
     [data-testid="stHorizontalBlock"] {
         display: flex !important;
-        flex-direction: row !important; /* 무조건 가로로 정렬 */
-        flex-wrap: nowrap !important;   /* 줄바꿈 절대 금지 */
-        align-items: center !important;
-        justify-content: flex-start !important; /* 왼쪽 밀착 */
-        gap: 2px !important;            /* 공 사이 간격 2px */
-        # overflow-x: auto !important;    /* 혹시 넘치면 가로 스크롤(잘림 방지) */
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        align-items: center !important; /* 수직 중앙 정렬 */
+        justify-content: flex-start !important;
+        gap: 0px !important;
+        width: 100% !important;
     }
     
-    /* 2. 각 공이 들어있는 칸: 너비를 픽셀 단위로 강제 고정 */
+    /* 2. 라벨 칸과 공 칸의 너비 최적화 */
     [data-testid="column"] {
-        width: 40px !important;         /* 공 크기 + 최소 여백 */
-        flex: 0 0 40px !important;      /* 늘어나거나 줄어들지 않게 고정 */
-        min-width: 40px !important;
-        padding: 0 !important;          # 간격 벌어짐 방지
+        flex: 0 0 auto !important;
+        padding: 0 !important;
         margin: 0 !important;
     }
-
-    /* 3. Streamlit 내부의 보이지 않는 여백(Gap) 제거 */
-    [data-testid="stHorizontalBlock"] > div {
-        width: auto !important;
-        min-width: auto !important;
+    
+    /* 라벨이 들어가는 첫 번째 칸 너비 */
+    [data-testid="column"]:nth-child(1) {
+        width: 65px !important;
+        min-width: 65px !important;
+    }
+    
+    /* 공이 들어가는 나머지 칸들 너비 */
+    [data-testid="column"]:not(:nth-child(1)) {
+        width: 38px !important;
+        min-width: 38px !important;
     }
 
-    /* 4. 라벨과 공 사이의 수직 간격 극소화 */
-    .stMarkdown p {
-        margin-bottom: -5px !important;
-        font-size: 0.85rem !important;
-        color: #555;
+    /* 3. 모바일 레이아웃 패딩 조절 */
+    .block-container {
+        padding: 1rem 0.5rem !important;
     }
     </style>
     """, unsafe_allow_html=True)
+
 
 
 
@@ -83,20 +86,25 @@ st.write(f"현재 시간: {current_time}")
 st.write("---")
 
 # 번호 생성 버튼
+# ... (상단 로직 동일)
+
 if st.button("✨ 행운의 번호 생성하기", type="primary", use_container_width=True):
-    # st.balloons() # 축하 효과
+    st.balloons()
     
     for label in ['A', 'B', 'C', 'D', 'E']:
         nums = generate_true_random_lotto()
         
-        # 가로 한 줄에 라벨과 공 표시
-        st.write(f"**{label}   자  동**")
-        cols = st.columns(6)
+        # 1. 컬럼 구성 변경: 첫 칸은 라벨용(가로폭 60px), 나머지 6개는 공용(각 40px)
+        # 비율을 직접 조절하기 위해 숫자를 포함한 리스트 사용
+        cols = st.columns([1.5, 1, 1, 1, 1, 1, 1]) 
         
+        # 2. 첫 번째 칸에 라벨 배치 (수직 중앙 정렬을 위해 padding-top 추가)
+        cols[0].markdown(f"<div style='padding-top:8px; font-weight:bold; font-size:14px;'>{label} 자동</div>", unsafe_allow_html=True)
+        
+        # 3. 나머지 칸에 공 배치
         for i, n in enumerate(nums):
             color = get_color(n)
-            # 모바일 최적화 사이즈(34px) 적용
-            cols[i].markdown(f"""
+            cols[i+1].markdown(f"""
                 <div style="
                     background-color: {color};
                     color: {'black' if n <= 10 else 'white'};
@@ -112,7 +120,8 @@ if st.button("✨ 행운의 번호 생성하기", type="primary", use_container_
                     box-shadow: 1px 1px 2px rgba(0,0,0,0.15);
                 ">{n}</div>
                 """, unsafe_allow_html=True)
-        st.write("") # 줄 간격
+        st.write("") # 줄 간격 조절용
+
 
 st.write("---")
 st.caption("본 프로그램은 기계적 무작위성 알고리즘을 사용합니다.")
