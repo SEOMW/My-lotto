@@ -18,22 +18,32 @@ st.set_page_config(page_title="민우동행 로또", page_icon="🍀", layout="c
 
 st.markdown("""
     <style>
-    /* 컬럼 간의 간격을 강제로 붙여서 한 줄에 6개가 나오도록 함 */
+    /* 1. 컬럼들을 감싸는 컨테이너를 가로 정렬(row)로 강제 고정 */
     [data-testid="column"] {
-        width: 100% !important;
+        width: calc(16.6% - 5px) !important; /* 6등분 비율 강제 */
         flex: 1 1 0% !important;
-        min-width: 0px !important;
+        min-width: 40px !important; /* 공이 찌그러지지 않는 최소폭 */
     }
-    /* 모바일 좌우 여백 최소화 */
+    
+    /* 2. Streamlit의 기본 가로 정렬 컨테이너 속성 강화 */
+    [data-testid="stHorizontalBlock"] {
+        display: flex !important;
+        flex-direction: row !important; /* 세로로 꺾이는 현상 방지 */
+        flex-wrap: nowrap !important; /* 줄바꿈 절대 방지 */
+        align-items: center !important;
+        justify-content: space-between !important;
+    }
+
+    /* 3. 모바일 화면 여백 최소화 */
     .block-container {
-        padding-left: 0.7rem !important;
-        padding-right: 0.7rem !important;
+        padding-left: 0.5rem !important;
+        padding-right: 0.5rem !important;
         padding-top: 1rem !important;
     }
-    /* 게임 라벨(A, B..) 글자 크기 조절 */
+
+    /* 4. 게임 라벨(Game A)과 공 사이의 간격 줄이기 */
     .stMarkdown p {
-        margin-bottom: 5px !important;
-        font-weight: bold;
+        margin-bottom: 2px !important;
     }
     </style>
     """, unsafe_allow_html=True)
