@@ -24,7 +24,7 @@ st.markdown("""
         flex-direction: row !important;
         flex-wrap: nowrap !important;
         justify-content: flex-start !important; /* 왼쪽 정렬로 밀착 */
-        gap: 5px !important; /* 공 사이의 간격을 5px로 고정 */
+        gap: 1px !important; /* 공 사이의 간격을 5px로 고정 */
     }
     
     /* 2. 각 컬럼의 너비를 공 크기에 딱 맞게 조절 */
