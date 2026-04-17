@@ -24,7 +24,7 @@ st.markdown("""
         flex-direction: row !important; /* 무조건 가로 */
         flex-wrap: nowrap !important;   /* 줄바꿈 절대 방지 */
         justify-content: center !important; /* 왼쪽으로 밀착 */
-        width: 100% !important;  /* 내용물만큼만 너비 차지(핵심) */
+        width: fit-content !important;  /* 내용물만큼만 너비 차지(핵심) */
         gap: 1px !important;            /* 공 사이의 간격 */
     }
     
@@ -43,8 +43,8 @@ st.markdown("""
 
     /* 4. 모바일 화면 좌우 여백 최소화 */
     .block-container {
-        padding-left: 15px !important;
-        padding-right: 15px !important;
+        padding-left: fit-content !important;
+        padding-right: fit-content !important;
         padding-top: 1rem !important;
     }
 
