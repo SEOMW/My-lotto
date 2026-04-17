@@ -18,39 +18,40 @@ st.set_page_config(page_title="민우동행 로또", page_icon="🍀", layout="c
 
 st.markdown("""
     <style>
-    /* 1. 컬럼들을 한 줄로 강제 고정하고 왼쪽으로 밀착 */
+    /* 1. 공들을 감싸는 한 줄(Row) 설정 */
     [data-testid="stHorizontalBlock"] {
         display: flex !important;
         flex-direction: row !important;
         flex-wrap: nowrap !important;
-        justify-content: flex-start !important; /* 왼쪽 정렬로 밀착 */
-        gap: -5px !important; /* 공 사이의 간격을 5px로 고정 */
+        justify-content: flex-start !important; /* 왼쪽으로 밀착 */
+        gap: 2px !important; /* 공 사이의 실제 간격 (더 좁히려면 0px) */
+        width: max-content !important; /* 내용물만큼만 너비 차지 */
     }
     
-    /* 2. 각 컬럼의 너비를 공 크기에 딱 맞게 조절 */
+    /* 2. 각 공이 들어가는 칸(Column) 설정 */
     [data-testid="column"] {
-        width: 36px !important; /* 공 크기(34px)보다 약간 크게 */
-        flex: 0 0 auto !important; /* 칸이 늘어나지 않게 고정 */
-        min-width: 36px !important;
+        width: 38px !important; /* 공 크기보다 약간만 크게 고정 */
+        flex: 0 0 38px !important; /* 늘어나지 못하게 강제 고정 */
+        min-width: 38px !important;
+        max-width: 38px !important;
+        padding: 0 !important;
+        margin: 0 !important;
     }
 
-    /* 3. 모바일 화면 여백 최소화 */
+    /* 3. 모바일 전체 화면 여백 조정 */
     .block-container {
-        padding-left: 0.5rem !important;
-        padding-right: 0.5rem !important;
-        padding-top: 1rem !important;
+        padding-left: 10px !important;
+        padding-right: 10px !important;
     }
 
-    /* 4. 게임 사이 간격 및 라벨 여백 줄이기 (한 화면에 넣기 위해) */
-    .element-container {
-        margin-bottom: 0px !important;
-    }
+    /* 4. 게임 라벨(A 자동)과 공 사이 여백 줄이기 */
     .stMarkdown p {
-        margin-bottom: -5px !important; /* 라벨과 공 사이 간격 축소 */
-        font-size: 0.9rem !important;
+        margin-bottom: -10px !important;
+        font-weight: bold;
     }
     </style>
     """, unsafe_allow_html=True)
+
 
 
 
