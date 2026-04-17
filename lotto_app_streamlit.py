@@ -38,7 +38,7 @@ def get_color(n):
 
 # 3. 화면 UI 구성
 st.title(" 🍀 민우동행 행운의 LOTTO 🍀 ")
-st.write(f"현재 시간 : {current_time}")
+st.write(f"현재 시간: {current_time}")
 st.write("---")
 
 # 번호 생성 버튼
