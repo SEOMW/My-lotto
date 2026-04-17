@@ -16,6 +16,29 @@ current_time = now_kst.strftime('%Y-%m-%d %H:%M:%S')
 # 1. 페이지 설정 (제목 및 모바일 레이아웃)
 st.set_page_config(page_title="민우동행 로또", page_icon="🍀", layout="centered")
 
+st.markdown("""
+    <style>
+    /* 컬럼 간의 간격을 강제로 붙여서 한 줄에 6개가 나오도록 함 */
+    [data-testid="column"] {
+        width: 100% !important;
+        flex: 1 1 0% !important;
+        min-width: 0px !important;
+    }
+    /* 모바일 좌우 여백 최소화 */
+    .block-container {
+        padding-left: 0.7rem !important;
+        padding-right: 0.7rem !important;
+        padding-top: 1rem !important;
+    }
+    /* 게임 라벨(A, B..) 글자 크기 조절 */
+    .stMarkdown p {
+        margin-bottom: 5px !important;
+        font-weight: bold;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+
+
 # 2. 로또 추출 로직 (기계적 무작위성 유지)
 def generate_true_random_lotto():
     seed_base = int(time.time() * 1000000)
@@ -55,24 +78,24 @@ if st.button("✨ 행운의 번호 생성하기", type="primary", use_container_
         
         for i, n in enumerate(nums):
             color = get_color(n)
-            # 모바일에서 예쁘게 보이는 공 디자인 (HTML/CSS)
+            # 모바일 최적화 사이즈(34px) 적용
             cols[i].markdown(f"""
                 <div style="
                     background-color: {color};
                     color: {'black' if n <= 10 else 'white'};
-                    width: 40px;
-                    height: 40px;
+                    width: 34px;
+                    height: 34px;
                     border-radius: 50%;
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    font-size: 16px;
+                    font-size: 14px;
                     font-weight: bold;
-                    margin: auto;
-                    box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+                    margin: 0 auto;
+                    box-shadow: 1px 1px 2px rgba(0,0,0,0.15);
                 ">{n}</div>
                 """, unsafe_allow_html=True)
-        st.write("") # 간격 조절
+        st.write("") # 줄 간격
 
 st.write("---")
 st.caption("본 프로그램은 기계적 무작위성 알고리즘을 사용합니다.")
