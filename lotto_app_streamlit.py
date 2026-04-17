@@ -18,39 +18,46 @@ st.set_page_config(page_title="민우동행 로또", page_icon="🍀", layout="c
 
 st.markdown("""
     <style>
-    /* 1. 공들을 감싸는 한 줄(Row) 설정 */
+    /* 1. 컬럼을 감싸는 전체 박스를 왼쪽으로 모으기 */
     [data-testid="stHorizontalBlock"] {
         display: flex !important;
-        flex-direction: row !important;
-        flex-wrap: nowrap !important;
+        flex-direction: row !important; /* 무조건 가로 */
+        flex-wrap: nowrap !important;   /* 줄바꿈 절대 방지 */
         justify-content: flex-start !important; /* 왼쪽으로 밀착 */
-        gap: 2px !important; /* 공 사이의 실제 간격 (더 좁히려면 0px) */
-        width: max-content !important; /* 내용물만큼만 너비 차지 */
+        width: fit-content !important;  /* 내용물만큼만 너비 차지(핵심) */
+        gap: 4px !important;            /* 공 사이의 간격 */
     }
     
-    /* 2. 각 공이 들어가는 칸(Column) 설정 */
+    /* 2. 각 컬럼(공이 들어있는 칸)의 너비를 최소화 */
     [data-testid="column"] {
-        width: 38px !important; /* 공 크기보다 약간만 크게 고정 */
-        flex: 0 0 38px !important; /* 늘어나지 못하게 강제 고정 */
-        min-width: 38px !important;
-        max-width: 38px !important;
+        flex: 0 0 auto !important;      /* 늘어나지 않게 고정 */
+        width: 42px !important;         /* 칸 너비를 42px로 고정 */
+        min-width: 42px !important;
+        max-width: 42px !important;
+    }
+
+    /* 3. Streamlit 기본 여백들 강제 제거 */
+    [data-testid="stVerticalBlock"] > div {
         padding: 0 !important;
-        margin: 0 !important;
     }
 
-    /* 3. 모바일 전체 화면 여백 조정 */
+    /* 4. 모바일 화면 좌우 여백 최소화 */
     .block-container {
-        padding-left: 10px !important;
-        padding-right: 10px !important;
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+        padding-top: 1rem !important;
     }
 
-    /* 4. 게임 라벨(A 자동)과 공 사이 여백 줄이기 */
+    /* 5. 게임 라벨(A 자동) 여백 줄이기 */
     .stMarkdown p {
-        margin-bottom: -10px !important;
+        margin-bottom: -8px !important;
+        margin-top: 5px !important;
         font-weight: bold;
+        font-size: 14px;
     }
     </style>
     """, unsafe_allow_html=True)
+
 
 
 
