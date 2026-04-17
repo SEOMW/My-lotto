@@ -1,6 +1,16 @@
 import streamlit as st
 import secrets
 import time
+import pytz # 타임존 라이브러리 추가
+
+# 한국 타임존 설정
+KST = pytz.timezone('Asia/Seoul')
+
+# 1. 현재 한국 시간 가져오기
+now_kst = datetime.now(KST)
+current_time = now_kst.strftime('%Y-%m-%d %H:%M:%S')
+
+
 
 # 1. 페이지 설정 (제목 및 모바일 레이아웃)
 st.set_page_config(page_title="민우동행 로또", page_icon="🍀", layout="centered")
@@ -28,7 +38,7 @@ def get_color(n):
 
 # 3. 화면 UI 구성
 st.title(" 🍀 민우동행 행운의 LOTTO 🍀 ")
-st.write(f"현재 시간: {time.strftime('%Y-%m-%d %H:%M:%S')}")
+st.write(f"현재 시간 : {current_time}")
 st.write("---")
 
 # 번호 생성 버튼
