@@ -23,9 +23,9 @@ st.markdown("""
         display: flex !important;
         flex-direction: row !important; /* 무조건 가로 */
         flex-wrap: nowrap !important;   /* 줄바꿈 절대 방지 */
-        justify-content: flex-start !important; /* 왼쪽으로 밀착 */
-        width: fit-content !important;  /* 내용물만큼만 너비 차지(핵심) */
-        gap: 4px !important;            /* 공 사이의 간격 */
+        justify-content: center !important; /* 왼쪽으로 밀착 */
+        width: 100% !important;  /* 내용물만큼만 너비 차지(핵심) */
+        gap: 1px !important;            /* 공 사이의 간격 */
     }
     
     /* 2. 각 컬럼(공이 들어있는 칸)의 너비를 최소화 */
