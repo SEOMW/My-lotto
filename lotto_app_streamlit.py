@@ -73,7 +73,7 @@ if st.button("✨ 행운의 번호 생성하기", type="primary", use_container_
         nums = generate_true_random_lotto()
         
         # 가로 한 줄에 라벨과 공 표시
-        st.write(f"**{label} 자 동**")
+        st.write(f"**{label}   자  동**")
         cols = st.columns(6)
         
         for i, n in enumerate(nums):
