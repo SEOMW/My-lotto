@@ -20,7 +20,7 @@ st.markdown("""
     <style>
     /* 1. 웹사이트의 느낌을 지우고 앱처럼 전체 너비 활용 */
     .block-container {
-        max-width: 100% !important;
+        max-width: max-content !important;
         padding-left: 1rem !important;
         padding-right: 1rem !important;
         padding-top: 1rem !important;
@@ -43,9 +43,9 @@ st.markdown("""
         display: flex !important;
         flex-direction: row !important;
         flex-wrap: nowrap !important;
-        justify-content: flex-start !important; /* 왼쪽으로 정렬 */
+        justify-content: center !important; /* 왼쪽으로 정렬 */
         gap: 2px !important; /* 공 사이의 미세한 간격 */
-        width: 100% !important;
+        width: max-content !important;
     }
     
     /* 4. 각 컬럼의 너비를 공 크기에 딱 맞게 고정 */
