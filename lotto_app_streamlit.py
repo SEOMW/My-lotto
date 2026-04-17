@@ -26,7 +26,7 @@ st.markdown("""
         align-items: center !important;
         justify-content: flex-start !important; /* 왼쪽 밀착 */
         gap: 2px !important;            /* 공 사이 간격 2px */
-        overflow-x: auto !important;    /* 혹시 넘치면 가로 스크롤(잘림 방지) */
+        # overflow-x: auto !important;    /* 혹시 넘치면 가로 스크롤(잘림 방지) */
     }
     
     /* 2. 각 공이 들어있는 칸: 너비를 픽셀 단위로 강제 고정 */
