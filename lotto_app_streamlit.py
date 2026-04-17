@@ -18,62 +18,41 @@ st.set_page_config(page_title="민우동행 로또", page_icon="🍀", layout="c
 
 st.markdown("""
     <style>
-    /* 1. 웹사이트의 느낌을 지우고 앱처럼 전체 너비 활용 */
-    .block-container {
-        max-width: max-content !important;
-        padding-left: 1rem !important;
-        padding-right: 1rem !important;
-        padding-top: 1rem !important;
-        padding-bottom: 1rem !important;
-    }
-
-    /* 2. 제목과 텍스트 크기를 모바일에 맞게 축소 */
-    h1 {
-        font-size: 1.5rem !important;
-        text-align: center;
-    }
-    .stMarkdown p {
-        font-size: 0.9rem !important;
-        margin-bottom: -15px !important; /* 라벨과 공 사이 밀착 */
-        padding-left: 5px;
-    }
-
-    /* 3. [핵심] 공들을 가로로 옹기종기 모으기 (모바일 강제 정렬) */
+    /* 1. 공들을 감싸는 컨테이너: 모바일 세로 꺾임 현상 절대 방지 */
     [data-testid="stHorizontalBlock"] {
         display: flex !important;
-        flex-direction: row !important;
-        flex-wrap: nowrap !important;
-        justify-content: center !important; /* 왼쪽으로 정렬 */
-        gap: 2px !important; /* 공 사이의 미세한 간격 */
-        width: max-content !important;
+        flex-direction: row !important; /* 무조건 가로로 정렬 */
+        flex-wrap: nowrap !important;   /* 줄바꿈 절대 금지 */
+        align-items: center !important;
+        justify-content: flex-start !important; /* 왼쪽 밀착 */
+        gap: 2px !important;            /* 공 사이 간격 2px */
+        overflow-x: auto !important;    /* 혹시 넘치면 가로 스크롤(잘림 방지) */
     }
     
-    /* 4. 각 컬럼의 너비를 공 크기에 딱 맞게 고정 */
+    /* 2. 각 공이 들어있는 칸: 너비를 픽셀 단위로 강제 고정 */
     [data-testid="column"] {
-        flex: 0 0 auto !important;
-        width: 40px !important; /* 공 크기 34px + 여백 6px */
+        width: 40px !important;         /* 공 크기 + 최소 여백 */
+        flex: 0 0 40px !important;      /* 늘어나거나 줄어들지 않게 고정 */
         min-width: 40px !important;
+        padding: 0 !important;          # 간격 벌어짐 방지
+        margin: 0 !important;
     }
 
-    /* 5. 버튼을 화면 너비에 꽉 차게 */
-    .stButton button {
-        width: 100% !important;
-        border-radius: 10px !important;
-        height: 3rem !important;
+    /* 3. Streamlit 내부의 보이지 않는 여백(Gap) 제거 */
+    [data-testid="stHorizontalBlock"] > div {
+        width: auto !important;
+        min-width: auto !important;
     }
 
-    /* 6. 불필요한 위쪽 여백(헤더) 제거 */
-    header {
-        visibility: hidden;
-    }
-    #MainMenu {
-        visibility: hidden;
-    }
-    footer {
-        visibility: hidden;
+    /* 4. 라벨과 공 사이의 수직 간격 극소화 */
+    .stMarkdown p {
+        margin-bottom: -5px !important;
+        font-size: 0.85rem !important;
+        color: #555;
     }
     </style>
     """, unsafe_allow_html=True)
+
 
 
 
