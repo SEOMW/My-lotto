@@ -143,9 +143,9 @@ if st.button("✨ 행운의 번호 생성하기", type="primary", use_container_
 
     # 1단계: 빌드업 메시지 누적 (과연... 부터 자! 까지)
     buildup_steps = [
-        ("과연...", 1.2),
-        ("당신의 행운 번호는...?", 1.2),
-        ("자! 공개 합니다 !!", 1.2)
+        ("과연...", 2.0),
+        ("당신의 행운 번호는...?", 2.0),
+        ("자! 공개 합니다 !!", 2.0)
     ]
 
     for msg, delay in buildup_steps:
@@ -156,7 +156,7 @@ if st.button("✨ 행운의 번호 생성하기", type="primary", use_container_
         msg_container.markdown(f"<div>{accumulated_msg}</div>", unsafe_allow_html=True)
 
     # 2단계: 이전 메시지 삭제 후 "공개 합니다 !!" 강렬하게 노출
-    with st.spinner('준비 중...'):
+    with st.spinner(''):
         time.sleep(1.0)
     
     # msg_container 내용을 완전히 새로 써서 이전 내용을 지움
