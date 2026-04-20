@@ -26,7 +26,7 @@ st.markdown("""
         align-items: center !important; /* 수직 중앙 정렬 */
         justify-content: flex-start !important;
         gap: 0px !important;
-        width: 100% !important;
+        width: 25% !important;
         # overflow-x: hidden !important;     
     }
     
