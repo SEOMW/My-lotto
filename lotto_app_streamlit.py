@@ -18,6 +18,10 @@ st.set_page_config(page_title="민우동행 로또", page_icon="🍀", layout="c
 
 st.markdown("""
     <style>
+    .stApp {
+        background-color: white !important;
+    }  
+
     /* 전체 요소 박스 모델 고정 */
     *, *:before, *:after {
         box-sizing: border-box !important;
@@ -116,7 +120,16 @@ st.write("---")
 # ... (상단 로직 동일)
 
 if st.button("✨ 행운의 번호 생성하기", type="primary", use_container_width=True):
-    st.spinner()
+    # 첫 번째 대기 메시지
+    with st.spinner('과연 당신의 행운의 추첨번호는...'):
+        time.sleep(1.0) # 0.5초보다 조금 더 길게 주면 긴장감이 생깁니다.
+        
+    # 두 번째 대기 메시지 (with 문을 새로 열거나 내부에서 텍스트를 보여줌)
+    with st.spinner('자! 공개 합니다 !!'):
+        time.sleep(0.8)
+
+    # 이후에 번호 생성 로직(for 문)이 오면 됩니다.
+    st.balloons() # 공개 직후 효과 추가
     
     for label in ['A', 'B', 'C', 'D', 'E']:
         nums = generate_true_random_lotto()
