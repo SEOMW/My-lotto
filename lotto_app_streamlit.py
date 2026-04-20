@@ -132,16 +132,8 @@ st.markdown("""
     """, unsafe_allow_html=True)
 st.write(f"현재 시간: {current_time}")
 st.write("---")
-
-# 번호 생성 버튼
-# ... (상단 로직 동일)
-
-# --- 번호 생성 버튼 전이나 후, 원하는 위치에 딱 한 번만 선언 ---
 footer_placeholder = st.empty()
-
-# 즉시 문구를 채워 넣습니다.
 footer_placeholder.markdown("<p style='color: #333333; font-size: 0.8rem; opacity: 0.8; text-align: center; margin-top: 30px;'>본 프로그램은 기계적 무작위성 알고리즘을 사용합니다.</p>", unsafe_allow_html=True)
-
 
 
 if st.button("✨ 행운의 번호 생성하기", type="primary", use_container_width=True):
