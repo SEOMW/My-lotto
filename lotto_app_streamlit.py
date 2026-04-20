@@ -41,6 +41,9 @@ st.markdown("""
         color: #000000;
         margin-bottom: 10px;
     }
+    /* 모든 텍스트 기본값 검정 */
+    * { color: #000000; box-sizing: border-box !important; }
+    
 
     /* 로또 행(Row) 컨테이너 최적화 */
     [data-testid="stHorizontalBlock"] {
