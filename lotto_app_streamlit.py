@@ -18,6 +18,13 @@ st.set_page_config(page_title="민우동행 로또", page_icon="🍀", layout="c
 
 st.markdown("""
     <style>
+
+    /* 상단 헤더와 메뉴 버튼 숨기기 */
+    header {visibility: hidden;}
+    #MainMenu {visibility: hidden;}
+    footer {visibility: hidden;}
+
+    
     .stApp {
         background-color: white !important;
     }  
