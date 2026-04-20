@@ -75,6 +75,12 @@ st.markdown("""
     [data-testid="column"]:not(:nth-child(1)) {
         flex: 1 1 0% !important; /* 남은 공간을 정확히 1/6씩 배분 */
     }
+            
+    /* 스피너 아이콘 옆의 텍스트 정밀 타겟팅 */
+    .stElementContainer div[role="status"] {
+        color: #000000 !important;
+        font-weight: bold !important;
+    }
 
     
     </style>
