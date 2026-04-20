@@ -132,9 +132,9 @@ st.write(f"현재 시간: {current_time}")
 st.write("---")
 
 if st.button("✨ 행운의 번호 생성하기", type="primary", use_container_width=True):
-    # 메시지를 담을 빈 공간 확보
-    msg_container = st.empty()
-    accumulated_msg = "" 
+    # # 메시지를 담을 빈 공간 확보
+    # msg_container = st.empty()
+    # accumulated_msg = "" 
 
     # 1단계: 빌드업 메시지 누적 (과연... 부터 자! 까지)
     buildup_steps = [
