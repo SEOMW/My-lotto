@@ -108,6 +108,7 @@ def get_color(n):
 st.markdown("""
     <h1 style='
         text-align: center; 
+        color : #000000;
         font-size: 28px;   /* 원하는 크기로 조절 (20px~28px 추천) */
         font-weight: 800; 
         padding-bottom: 10px;
