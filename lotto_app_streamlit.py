@@ -108,6 +108,7 @@ st.markdown("""
         text-align: center; 
         font-size: 28px;   /* 원하는 크기로 조절 (20px~28px 추천) */
         font-weight: 800; 
+        font-color: #000000
         padding-bottom: 10px;
     '>
     🍀 민우동행 행운의 LOTTO 🍀
@@ -139,7 +140,7 @@ if st.button("✨ 행운의 번호 생성하기", type="primary", use_container_
         cols = st.columns([1, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5]) 
         
         # 2. 첫 번째 칸에 라벨 배치 (수직 중앙 정렬을 위해 padding-top 추가)
-        cols[0].markdown(f"<div style='padding-top:8px; font-weight:bold; font-size:14px;'>{label} 자동</div>", unsafe_allow_html=True)
+        cols[0].markdown(f"<div style='padding-top:8px; font-weight:bold; font-size:14px;', font-color: #000000;>{label} 자동</div>", unsafe_allow_html=True)
         
         # 3. 나머지 칸에 공 배치
         for i, n in enumerate(nums):
@@ -165,4 +166,4 @@ if st.button("✨ 행운의 번호 생성하기", type="primary", use_container_
 
 
 st.write("---")
-st.caption("본 프로그램은 기계적 무작위성 알고리즘을 사용합니다.")
+st.caption("본 프로그램은 기계적 무작위성 알고리즘을 사용합니다.", color = '#000000')
