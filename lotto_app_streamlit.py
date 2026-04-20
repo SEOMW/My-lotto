@@ -137,23 +137,29 @@ st.write("---")
 # ... (상단 로직 동일)
 
 if st.button("✨ 행운의 번호 생성하기", type="primary", use_container_width=True):
-    # 첫 번째 대기 메시지
-    with st.spinner('과연'):
-        time.sleep(2.0) # 0.5초보다 조금 더 길게 주면 긴장감이 생깁니다.
-
-    with st.spinner('당신의 행운의 추첨번호는...?'):
-        time.sleep(2.0) # 0.5초보다 조금 더 길게 주면 긴장감이 생깁니다.
-        
-    # 두 번째 대기 메시지 (with 문을 새로 열거나 내부에서 텍스트를 보여줌)
-    with st.spinner('자!'):
-        time.sleep(2.0)
-    with st.spinner('공개 합니다 !!'):
-        time.sleep(2.0)
+    # 1. 첫 번째 메시지
+    with st.spinner('과연...'):
+        time.sleep(1.5)
+    st.markdown("<p style='color:black; font-weight:bold; text-align:center;'>과연...</p>", unsafe_allow_html=True)
     
+    # 2. 두 번째 메시지 누적
+    with st.spinner('당신의 행운의 추첨번호는...?'):
+        time.sleep(1.5)
+    st.markdown("<p style='color:black; font-weight:bold; text-align:center;'>당신의 행운의 추첨번호는...?</p>", unsafe_allow_html=True)
+    
+    # 3. 세 번째 메시지 누적
+    with st.spinner('자!'):
+        time.sleep(1.0)
+    st.markdown("<p style='color:black; font-weight:bold; text-align:center;'>자!</p>", unsafe_allow_html=True)
+    
+    # 4. 마지막 메시지 누적
+    with st.spinner('공개 합니다 !!'):
+        time.sleep(1.0)
+    st.markdown("<p style='color:black; font-weight:bold; text-align:center; font-size:1.2rem;'>공개 합니다 !!</p>", unsafe_allow_html=True)
 
+    # 이후 번호 생성 로직 실행
+    st.balloons()
 
-    # 이후에 번호 생성 로직(for 문)이 오면 됩니다.
-    st.balloons() # 공개 직후 효과 추가
     
     for label in ['A', 'B', 'C', 'D', 'E']:
         nums = generate_true_random_lotto()
