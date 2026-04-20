@@ -137,31 +137,47 @@ st.write("---")
 # ... (상단 로직 동일)
 
 if st.button("✨ 행운의 번호 생성하기", type="primary", use_container_width=True):
-    # 메시지를 담을 빈 공간 생성
+    # 메시지를 담을 빈 공간 확보
     msg_container = st.empty()
-    accumulated_msg = "" # 메시지를 누적할 변수
+    accumulated_msg = "" 
 
-    # 메시지 리스트 정의 (출력할 문구와 대기 시간)
-    steps = [
-        ("과연...", 1.5),
-        ("당신의 행운의 추첨번호는...?", 1.5),
-        ("자!", 1.0),
-        ("공개 합니다 !!", 1.0)
+    # 1단계: 빌드업 메시지 누적 (과연... 부터 자! 까지)
+    buildup_steps = [
+        ("과연...", 1.2),
+        ("당신의 행운의 추첨번호는...?", 1.2),
+        ("자!", 0.8)
     ]
 
-    for msg, delay in steps:
-        # spinner는 상태 표시줄처럼 잠깐 띄우고
+    for msg, delay in buildup_steps:
         with st.spinner(msg):
             time.sleep(delay)
-        
-        # 기존 메시지에 새 메시지를 추가 (줄바꿈 포함)
+        # 메시지 누적하여 출력
         accumulated_msg += f"<p style='color:black; font-weight:bold; text-align:center; margin:5px 0;'>{msg}</p>"
-        
-        # 빈 공간(msg_container)의 내용만 업데이트 (화면 덜컹거림 없음)
         msg_container.markdown(f"<div>{accumulated_msg}</div>", unsafe_allow_html=True)
 
-    # 모든 메시지 출력 후 최종 효과
-    st.balloons()
+    # 2단계: 이전 메시지 삭제 후 "공개 합니다 !!" 강렬하게 노출
+    with st.spinner('준비 중...'):
+        time.sleep(1.0)
+    
+    # msg_container 내용을 완전히 새로 써서 이전 내용을 지움
+    msg_container.markdown("""
+        <div style='display:flex; flex-direction:column; align-items:center; justify-content:center; padding: 20px 0;'>
+            <p style='color:#2E7D32; font-size:1.5rem; font-weight:900; text-align:center; 
+            animation: pulse 1s infinite;'>
+            🎊 자! 공개 합니다 !! 🎊
+            </p>
+        </div>
+        <style>
+            @keyframes pulse {
+                0% { transform: scale(1); }
+                50% { transform: scale(1.05); }
+                100% { transform: scale(1); }
+            }
+        </style>
+    """, unsafe_allow_html=True)
+    
+    time.sleep(1.2) # 강조된 메시지를 잠시 보여줌
+    st.balloons()   # 축제 분위기 시작
 
     
     for label in ['A', 'B', 'C', 'D', 'E']:
