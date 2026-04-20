@@ -18,76 +18,55 @@ st.set_page_config(page_title="민우동행 로또", page_icon="🍀", layout="c
 
 st.markdown("""
     <style>
-        /* 1. 기본 박스 모델 설정 및 전체 폭 확보 */
-        *, *:before, *:after {
-            box-sizing: border-box !important;
-        }
+    /* 전체 요소 박스 모델 고정 */
+    *, *:before, *:after {
+        box-sizing: border-box !important;
+    }
+
+    /* 메인 컨테이너 패딩 조절 (타이틀 가려짐 방지) */
+    .block-container {
+        padding: 3rem 0.5rem 1rem 0.5rem !important;
+    }
+
+    /* 타이틀 스타일 */
+    .main-title {
+        text-align: center;
+        font-size: 1.6rem; /* 모바일 맞춤 크기 */
+        font-weight: 800;
+        color: #2E7D32;
+        margin-bottom: 10px;
+    }
+
+    /* 로또 행(Row) 컨테이너 최적화 */
+    [data-testid="stHorizontalBlock"] {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        gap: 0px !important; /* 미세한 간격 */
+        width: 25% !important;
+        max-width: 500px !important; /* 가로 모드 시 너무 퍼지지 않게 제한 */
+        margin: 0 auto !important;
+        overflow: visible !important;
+    }
     
-        .block-container {
-            padding: 5rem 0.5rem 1rem 0.5rem !important;
-            max-width: 100% !important; /* 전체 가로 폭 사용 */
-        }
+    /* 각 컬럼 너비 강제 조정 */
+    [data-testid="column"] {
+        padding: 0 !important;
+        margin: 0 !important;
+        min-width: 0 !important; /* Streamlit 기본 최소폭 해제 */
+    }
     
-        /* 2. 메인 타이틀 (반응형 폰트) */
-        .main-title {
-            text-align: center;
-            font-size: clamp(1.2rem, 5vw, 1.8rem); /* 화면 폭에 따라 폰트 크기 자동 조절 */
-            font-weight: 800;
-            color: #2E7D32;
-            margin-bottom: 20px;
-        }
+    /* 라벨 칸 (A 자동 등) */
+    [data-testid="column"]:nth-child(1) {
+        flex: 0 0 10px !important; /* 라벨에 필요한 최소 너비 고정 */
+    }
     
-        /* 3. 로또 행 컨테이너 (가장 중요) */
-        [data-testid="stHorizontalBlock"] {
-            display: flex !important;
-            flex-direction: row !important;
-            flex-wrap: nowrap !important; /* 줄바꿈 절대 방지 */
-            align-items: center !important;
-            justify-content: center !important; /* 세로 화면에서도 중앙 정렬 */
-            width: 100% !important; /* 화면을 가득 채움 */
-            max-width: 600px !important; /* 가로 모드 시 너무 퍼지는 것 방지 */
-            margin: 0 auto !important;
-            gap: 0px !important;
-        }
-        
-        /* 4. 컬럼 유연성 확보 (세로 화면 스크롤 방지의 핵심) */
-        [data-testid="column"] {
-            padding: 0 !important;
-            margin: 0 !important;
-            min-width: 0 !important; /* 최소 너비 제한을 풀어야 화면 내에 수축함 */
-            flex: 1 1 auto !important;
-        }
-        
-        /* 라벨 칸 (A 자동 등) - 비율로 설정 */
-        [data-testid="column"]:nth-child(1) {
-            flex: 0 0 15% !important; /* 화면의 15%만 차지 */
-            min-width: 45px !important; /* 글자가 깨지지 않을 최소치 */
-        }
-        
-        /* 공 칸 - 나머지 공간을 정확히 나눔 */
-        [data-testid="column"]:not(:nth-child(1)) {
-            flex: 1 1 0% !important;
-        }
-    
-        /* 5. 공 디자인 (반응형 크기) */
-        /* 고정 px 대신 화면 폭(vw) 단위를 섞어 씁니다 */
-        .lotto-ball {
-            background-color: var(--ball-color);
-            width: 8.2vw !important;  /* 화면 폭의 약 8% 크기 */
-            height: 8.2vw !important;
-            max-width: 36px !important; /* 가로 모드 시 너무 커짐 방지 */
-            max-height: 36px !important;
-            min-width: 28px !important; /* 너무 작아짐 방지 */
-            min-height: 28px !important;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: clamp(10px, 2.5vw, 14px); /* 숫자 크기 자동 조절 */
-            font-weight: bold;
-            margin: 3px auto;
-            box-shadow: 1px 1px 2px rgba(0,0,0,0.15);
-        }
+    /* 공이 들어가는 나머지 칸들 */
+    [data-testid="column"]:not(:nth-child(1)) {
+        flex: 1 1 0% !important; /* 남은 공간을 정확히 1/6씩 배분 */
+    }
 
     
     </style>
@@ -151,9 +130,20 @@ if st.button("✨ 행운의 번호 생성하기", type="primary", use_container_
         for i, n in enumerate(nums):
             color = get_color(n)
             cols[i+1].markdown(f"""
-                <div class="lotto-ball" style="
+                <div style="
+                    box-sizing: border-box;           
                     background-color: {color};
                     color: {'black' if n <= 10 else 'white'};
+                    width: 34px;
+                    height: 34px;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 14px;
+                    font-weight: bold;
+                    margin: 0 auto;
+                    box-shadow: 1px 1px 2px rgba(0,0,0,0.15);
                 ">{n}</div>
                 """, unsafe_allow_html=True)
         st.write("") # 줄 간격 조절용
