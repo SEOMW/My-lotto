@@ -145,7 +145,7 @@ if st.button("✨ 행운의 번호 생성하기", type="primary", use_container_
     buildup_steps = [
         ("과연...", 2.0),
         ("당신의 행운 번호는...?", 2.0),
-        ("자! 공개 합니다 !!", 2.0)
+        ("자! 공개 합니다 !!", 3.0)
     ]
 
     for msg, delay in buildup_steps:
@@ -157,7 +157,7 @@ if st.button("✨ 행운의 번호 생성하기", type="primary", use_container_
 
     # 2단계: 이전 메시지 삭제 후 "공개 합니다 !!" 강렬하게 노출
     with st.spinner(''):
-        time.sleep(1.0)
+        time.sleep(2.0)
     
     # msg_container 내용을 완전히 새로 써서 이전 내용을 지움
     msg_container.markdown("""
@@ -176,7 +176,7 @@ if st.button("✨ 행운의 번호 생성하기", type="primary", use_container_
         </style>
     """, unsafe_allow_html=True)
     
-    time.sleep(1.2) # 강조된 메시지를 잠시 보여줌
+    # time.sleep(1.2) # 강조된 메시지를 잠시 보여줌
     st.balloons()   # 축제 분위기 시작
 
     
