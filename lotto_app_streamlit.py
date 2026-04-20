@@ -85,7 +85,8 @@ st.markdown("""
     .stElementContainer div[role="status"] {
         color: #000000 !important;
         font-weight: bold !important;
-        font-size: 10px;
+        font-size: 20px;
+        font-weight:bold;
         text-align: center;
     }
 
@@ -126,7 +127,7 @@ st.markdown("""
         font-weight: 800; 
         padding-bottom: 10px;
     '>
-    🍀 민우동행 행운의 LOTTO 🍀
+     🍀 민우동행 행운의 LOTTO 🍀
     </h1>
     """, unsafe_allow_html=True)
 st.write(f"현재 시간: {current_time}")
