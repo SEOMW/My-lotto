@@ -149,7 +149,7 @@ if st.button("✨ 행운의 번호 생성하기", type="primary", use_container_
     ]
 
     for msg, delay in buildup_steps:
-        with st.spinner(msg):
+        with st.spinner(""):
             time.sleep(delay)
         # 메시지 누적하여 출력
         accumulated_msg += f"<p style='color:black; font-weight:bold; text-align:center; margin:5px 0;'>{msg}</p>"
