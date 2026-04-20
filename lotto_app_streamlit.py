@@ -152,7 +152,7 @@ if st.button("✨ 행운의 번호 생성하기", type="primary", use_container_
         with st.spinner(""):
             time.sleep(delay)
         # 메시지 누적하여 출력
-        accumulated_msg += f"<p style='color:black; font-weight:bold; font-size: 1.0; text-align:center; margin:5px 0;'>{msg}</p>"
+        accumulated_msg += f"<p style='color:black; font-weight:bold; font-size: 3.0; text-align:center; margin:5px 0;'>{msg}</p>"
         msg_container.markdown(f"<div>{accumulated_msg}</div>", unsafe_allow_html=True)
 
     # 2단계: 이전 메시지 삭제 후 "공개 합니다 !!" 강렬하게 노출
@@ -176,7 +176,7 @@ if st.button("✨ 행운의 번호 생성하기", type="primary", use_container_
         </style>
     """, unsafe_allow_html=True)
     
-    # time.sleep(1.2) # 강조된 메시지를 잠시 보여줌
+    time.sleep(1.2) # 강조된 메시지를 잠시 보여줌
     st.balloons()   # 축제 분위기 시작
 
     
