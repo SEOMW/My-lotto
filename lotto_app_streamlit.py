@@ -37,7 +37,8 @@ st.markdown("""
         text-align: center;
         font-size: 1.6rem; /* 모바일 맞춤 크기 */
         font-weight: 800;
-        color: #2E7D32;
+        # color: #2E7D32;
+        color: #000000;
         margin-bottom: 10px;
     }
 
@@ -67,6 +68,7 @@ st.markdown("""
     /* 라벨 칸 (A 자동 등) */
     [data-testid="column"]:nth-child(1) {
         flex: 0 0 1px !important; /* 라벨에 필요한 최소 너비 고정 */
+        color: #000000;
     }
     
     /* 공이 들어가는 나머지 칸들 */
@@ -108,7 +110,6 @@ st.markdown("""
         text-align: center; 
         font-size: 28px;   /* 원하는 크기로 조절 (20px~28px 추천) */
         font-weight: 800; 
-        font-color: #000000;
         padding-bottom: 10px;
     '>
     🍀 민우동행 행운의 LOTTO 🍀
@@ -140,7 +141,7 @@ if st.button("✨ 행운의 번호 생성하기", type="primary", use_container_
         cols = st.columns([1, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5]) 
         
         # 2. 첫 번째 칸에 라벨 배치 (수직 중앙 정렬을 위해 padding-top 추가)
-        cols[0].markdown(f"<div style='padding-top:8px; font-weight:bold; font-size:14px;', font-color: #000000;>{label} 자동</div>", unsafe_allow_html=True)
+        cols[0].markdown(f"<div style='padding-top:8px; font-weight:bold; font-size:14px;', color: #000000;>{label} 자동</div>", unsafe_allow_html=True)
         
         # 3. 나머지 칸에 공 배치
         for i, n in enumerate(nums):
