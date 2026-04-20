@@ -26,7 +26,7 @@ st.markdown("""
         align-items: center !important; /* 수직 중앙 정렬 */
         justify-content: flex-start !important;
         gap: 0px !important;
-        width: 20% !important;
+        width: 100% !important;
         # overflow-x: hidden !important;     
     }
     
@@ -45,13 +45,13 @@ st.markdown("""
     
     /* 공이 들어가는 나머지 칸들 너비 */
     [data-testid="column"]:not(:nth-child(1)) {
-        width: 15px !important;
-        min-width: 10px !important;
+        width: auto !important;
+        flex: 1 1 auto !important;;
     }
 
     /* 3. 모바일 레이아웃 패딩 조절 */
     .block-container {
-        padding: 1rem 0.5rem !important;
+        padding-top: 3rem !important;
     }
     </style>
     """, unsafe_allow_html=True)
