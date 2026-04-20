@@ -37,7 +37,6 @@ st.markdown("""
         text-align: center;
         font-size: 1.6rem; /* 모바일 맞춤 크기 */
         font-weight: 800;
-        # color: #2E7D32;
         color: #000000;
         margin-bottom: 10px;
     }
@@ -53,7 +52,6 @@ st.markdown("""
         width: 20% !important;
         max-width: 500px !important; /* 가로 모드 시 너무 퍼지지 않게 제한 */
         margin: 0 auto !important;
-        # overflow: visible !important;
     }
     
     /* 각 컬럼 너비 강제 조정 */
