@@ -136,6 +136,14 @@ st.write("---")
 # 번호 생성 버튼
 # ... (상단 로직 동일)
 
+# --- 번호 생성 버튼 전이나 후, 원하는 위치에 딱 한 번만 선언 ---
+footer_placeholder = st.empty()
+
+# 즉시 문구를 채워 넣습니다.
+footer_placeholder.markdown("<p style='color: #333333; font-size: 0.8rem; opacity: 0.8; text-align: center; margin-top: 30px;'>본 프로그램은 기계적 무작위성 알고리즘을 사용합니다.</p>", unsafe_allow_html=True)
+
+
+
 if st.button("✨ 행운의 번호 생성하기", type="primary", use_container_width=True):
     # 메시지를 담을 빈 공간 확보
     msg_container = st.empty()
@@ -157,7 +165,7 @@ if st.button("✨ 행운의 번호 생성하기", type="primary", use_container_
 
     # 2단계: 이전 메시지 삭제 후 "공개 합니다 !!" 강렬하게 노출
     with st.spinner(''):
-        time.sleep(2.0)
+        time.sleep(1.0)
     
     # msg_container 내용을 완전히 새로 써서 이전 내용을 지움
     msg_container.markdown("""
@@ -176,7 +184,7 @@ if st.button("✨ 행운의 번호 생성하기", type="primary", use_container_
         </style>
     """, unsafe_allow_html=True)
     
-    # time.sleep(1.2) # 강조된 메시지를 잠시 보여줌
+    time.sleep(1.2) # 강조된 메시지를 잠시 보여줌
     st.balloons()   # 축제 분위기 시작
 
     
@@ -213,5 +221,5 @@ if st.button("✨ 행운의 번호 생성하기", type="primary", use_container_
         st.write("") # 줄 간격 조절용
 
 
-st.write("---")
-st.markdown("<p style='color: #333333; font-size: 0.8rem; opacity: 0.8; text-align: center;'>본 프로그램은 기계적 무작위성 알고리즘을 사용합니다.</p>", unsafe_allow_html=True)
+# st.write("---")
+# st.markdown("<p style='color: #333333; font-size: 0.8rem; opacity: 0.8; text-align: center;'>본 프로그램은 기계적 무작위성 알고리즘을 사용합니다.</p>", unsafe_allow_html=True)
