@@ -67,6 +67,41 @@ st.markdown("""
     [data-testid="column"]:not(:nth-child(1)) {
         flex: 1 1 0% !important; /* 남은 공간을 정확히 1/6씩 배분 */
     }
+
+
+    /* 1. 컨테이너의 가로 제한 해제 및 여백 제거 */
+    [data-testid="stHorizontalBlock"] {
+        width: 100% !important;
+        gap: 0px !important; /* 컬럼 사이의 간격을 0으로 강제 */
+        margin: 0px !important;
+        padding: 0px !important;
+        flex-wrap: nowrap !important;
+    }
+    
+    /* 2. 각 컬럼의 너비를 강제로 화면에 구겨넣기 */
+    [data-testid="column"] {
+        min-width: 0 !important; /* 최소 너비 제한 해제 */
+        flex-shrink: 1 !important; /* 화면이 좁아지면 무조건 줄어들게 설정 */
+        flex-grow: 1 !important;
+        padding: 0px 1px !important; /* 공끼리 붙지 않게 아주 미세한 여백만 허용 */
+    }
+    
+    /* 3. 라벨 컬럼 너비 최소화 */
+    [data-testid="column"]:nth-of-type(1) {
+        flex-basis: 45px !important; /* 라벨 칸을 더 줄임 */
+        flex-grow: 0 !important;
+        flex-shrink: 0 !important;
+    }
+    
+    /* 4. 공(Ball)의 크기 조절 (가장 중요) */
+    /* 숫자가 삐져나온다면 공의 width/height를 더 줄여야 합니다 */
+    [data-testid="column"] div {
+        max-width: 100% !important;
+    }
+    
+
+
+    
     </style>
     """, unsafe_allow_html=True)
 
@@ -132,8 +167,8 @@ if st.button("✨ 행운의 번호 생성하기", type="primary", use_container_
                     box-sizing: border-box;           
                     background-color: {color};
                     color: {'black' if n <= 10 else 'white'};
-                    width: 28px;
-                    height: 28px;
+                    width: 34px;
+                    height: 34px;
                     border-radius: 50%;
                     display: flex;
                     align-items: center;
