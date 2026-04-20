@@ -81,7 +81,16 @@ def get_color(n):
     return "#b0d840"
 
 # 3. 화면 UI 구성
-st.title(" 🍀 민우동행 행운의 LOTTO 🍀 ")
+st.markdown("""
+    <h1 style='
+        text-align: center; 
+        font-size: 24px;   /* 원하는 크기로 조절 (20px~28px 추천) */
+        font-weight: 800; 
+        padding-bottom: 10px;
+    '>
+    🍀 민우동행 행운의 LOTTO 🍀
+    </h1>
+    """, unsafe_allow_html=True)
 st.write(f"현재 시간: {current_time}")
 st.write("---")
 
@@ -89,14 +98,14 @@ st.write("---")
 # ... (상단 로직 동일)
 
 if st.button("✨ 행운의 번호 생성하기", type="primary", use_container_width=True):
-    st.balloons()
+    st.spinner()
     
     for label in ['A', 'B', 'C', 'D', 'E']:
         nums = generate_true_random_lotto()
         
         # 1. 컬럼 구성 변경: 첫 칸은 라벨용(가로폭 60px), 나머지 6개는 공용(각 40px)
         # 비율을 직접 조절하기 위해 숫자를 포함한 리스트 사용
-        cols = st.columns([1.5, 1, 1, 1, 1, 1, 1]) 
+        cols = st.columns([1, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5]) 
         
         # 2. 첫 번째 칸에 라벨 배치 (수직 중앙 정렬을 위해 padding-top 추가)
         cols[0].markdown(f"<div style='padding-top:8px; font-weight:bold; font-size:14px;'>{label} 자동</div>", unsafe_allow_html=True)
@@ -106,6 +115,7 @@ if st.button("✨ 행운의 번호 생성하기", type="primary", use_container_
             color = get_color(n)
             cols[i+1].markdown(f"""
                 <div style="
+                    box-sizing: border-box;           
                     background-color: {color};
                     color: {'black' if n <= 10 else 'white'};
                     width: 34px;
