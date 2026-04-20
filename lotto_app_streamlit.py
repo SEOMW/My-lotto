@@ -176,7 +176,7 @@ if st.button("✨ 행운의 번호 생성하기", type="primary", use_container_
         </style>
     """, unsafe_allow_html=True)
     
-    time.sleep(1.2) # 강조된 메시지를 잠시 보여줌
+    # time.sleep(1.2) # 강조된 메시지를 잠시 보여줌
     st.balloons()   # 축제 분위기 시작
 
     
