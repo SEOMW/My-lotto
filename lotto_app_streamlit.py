@@ -27,7 +27,7 @@ st.markdown("""
         justify-content: flex-start !important;
         gap: 0px !important;
         width: 100% !important;
-        overflow-x: hidden !important;     
+        # overflow-x: hidden !important;     
     }
     
     /* 2. 라벨 칸과 공 칸의 너비 최적화 */
