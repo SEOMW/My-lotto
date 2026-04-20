@@ -132,8 +132,8 @@ if st.button("✨ 행운의 번호 생성하기", type="primary", use_container_
                     box-sizing: border-box;           
                     background-color: {color};
                     color: {'black' if n <= 10 else 'white'};
-                    width: 34px;
-                    height: 34px;
+                    width: 28px;
+                    height: 28px;
                     border-radius: 50%;
                     display: flex;
                     align-items: center;
