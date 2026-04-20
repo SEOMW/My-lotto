@@ -346,6 +346,7 @@ st.markdown("""
      🍀 민우동행 행운의 LOTTO 🍀
     </h1>
     """, unsafe_allow_html=True)
+
 st.write(f"현재 시간: {current_time}")
 st.write("---")
 
@@ -369,7 +370,7 @@ if st.button("✨ 행운의 번호 생성하기", type="primary", use_container_
         msg_container.markdown(f"<div>{accumulated_msg}</div>", unsafe_allow_html=True)
 
     # 2단계: 이전 메시지 삭제 후 "공개 합니다 !!" 강렬하게 노출
-    with st.spinner(''):
+    with st.spinner(""):
         time.sleep(1.0)
     
     # msg_container 내용을 완전히 새로 써서 이전 내용을 지움
