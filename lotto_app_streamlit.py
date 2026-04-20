@@ -26,7 +26,8 @@ st.markdown("""
         align-items: center !important; /* 수직 중앙 정렬 */
         justify-content: flex-start !important;
         gap: 0px !important;
-        width: 15% !important;
+        width: 100% !important;
+        overflow-x: hidden !important;     
     }
     
     /* 2. 라벨 칸과 공 칸의 너비 최적화 */
