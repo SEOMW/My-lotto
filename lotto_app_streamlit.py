@@ -48,7 +48,7 @@ st.markdown("""
         width: 25% !important;
         max-width: 500px !important; /* 가로 모드 시 너무 퍼지지 않게 제한 */
         margin: 0 auto !important;
-        overflow: visible !important;
+        # overflow: visible !important;
     }
     
     /* 각 컬럼 너비 강제 조정 */
