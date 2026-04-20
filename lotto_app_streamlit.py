@@ -57,10 +57,6 @@ st.markdown("""
         min-width: 0 !important; /* 👈 좁은 화면에서 스스로 줄어들게 허용 */
         padding: 0 !important;
         margin: 0 !important;
-        text-align: center !important;        flex: 1 1 0% !important; /* 👈 남은 공간을 균등하게 배분 */
-        min-width: 0 !important; /* 👈 좁은 화면에서 스스로 줄어들게 허용 */
-        padding: 0 !important;
-        margin: 0 !important;
         text-align: center !important;
     }
     
