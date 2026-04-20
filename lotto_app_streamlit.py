@@ -131,7 +131,7 @@ st.markdown("""
     </h1>
     """, unsafe_allow_html=True)
 st.write(f"현재 시간: {current_time}")
-st.write("---")
+# st.write("---")
 footer_placeholder = st.empty()
 footer_placeholder.markdown("<p style='color: #333333; font-size: 0.8rem; opacity: 0.8; text-align: center; margin-top: 30px;'>본 프로그램은 기계적 무작위성 알고리즘을 사용합니다.</p>", unsafe_allow_html=True)
 
