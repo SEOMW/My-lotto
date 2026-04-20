@@ -284,7 +284,7 @@ st.markdown("""
     /* 라벨 칸 (A 자동 등) */
     [data-testid="column"]:nth-child(1) {
         flex: 0 0 1px !important; /* 라벨에 필요한 최소 너비 고정 */
-        color: #000000;
+        # color: #000000;
     }
     
     /* 공이 들어가는 나머지 칸들 */
@@ -294,7 +294,7 @@ st.markdown("""
             
     /* 스피너(로딩) 텍스트 색상 및 스타일 강제 지정 */
     div[data-testid="stMarkdownContainer"] p {
-        color: #000000 !important;
+        # color: #000000 !important;
     }
 
     /* 스피너 아이콘 옆의 텍스트 정밀 타겟팅 */
