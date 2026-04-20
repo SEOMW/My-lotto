@@ -145,14 +145,14 @@ if st.button("✨ 행운의 번호 생성하기", type="primary", use_container_
     buildup_steps = [
         ("과연...", 1.2),
         ("당신의 행운 번호는...?", 1.2),
-        ("자!", 0.8)
+        ("자! 공개 합니다 !!", 1.2)
     ]
 
     for msg, delay in buildup_steps:
         with st.spinner(""):
             time.sleep(delay)
         # 메시지 누적하여 출력
-        accumulated_msg += f"<p style='color:black; font-weight:bold; text-align:center; margin:5px 0;'>{msg}</p>"
+        accumulated_msg += f"<p style='color:black; font-weight:bold; font-size: 1.0; text-align:center; margin:5px 0;'>{msg}</p>"
         msg_container.markdown(f"<div>{accumulated_msg}</div>", unsafe_allow_html=True)
 
     # 2단계: 이전 메시지 삭제 후 "공개 합니다 !!" 강렬하게 노출
@@ -164,7 +164,7 @@ if st.button("✨ 행운의 번호 생성하기", type="primary", use_container_
         <div style='display:flex; flex-direction:column; align-items:center; justify-content:center; padding: 20px 0;'>
             <p style='color:#2E7D32; font-size:1.5rem; font-weight:900; text-align:center; 
             animation: pulse 1s infinite;'>
-            🎊 !! 공개 합니다 !! 🎊
+            🎊 !! 당첨을 기원합니다 !! 🎊
             </p>
         </div>
         <style>
