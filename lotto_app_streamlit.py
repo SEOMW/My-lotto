@@ -40,7 +40,8 @@ st.markdown("""
     /* 라벨이 들어가는 첫 번째 칸 너비 */
     [data-testid="column"]:nth-child(1) {
         width: 15px !important;
-        min-width: 15px !important;
+        flex: 1 1 0% !important;
+        min-width: 0 !important;
     }
     
     /* 공이 들어가는 나머지 칸들 너비 */
