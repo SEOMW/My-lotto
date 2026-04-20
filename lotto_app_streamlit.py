@@ -85,6 +85,8 @@ st.markdown("""
     .stElementContainer div[role="status"] {
         color: #000000 !important;
         font-weight: bold !important;
+        font-size: 10px;
+        text-align: center;
     }
 
     
@@ -142,7 +144,7 @@ if st.button("✨ 행운의 번호 생성하기", type="primary", use_container_
         time.sleep(2.0) # 0.5초보다 조금 더 길게 주면 긴장감이 생깁니다.
         
     # 두 번째 대기 메시지 (with 문을 새로 열거나 내부에서 텍스트를 보여줌)
-    with st.spinner('자! 공개 합니다 !!'):
+    with st.spinner('자!'):
         time.sleep(2.0)
     with st.spinner('공개 합니다 !!'):
         time.sleep(2.0)
