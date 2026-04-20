@@ -18,46 +18,57 @@ st.set_page_config(page_title="민우동행 로또", page_icon="🍀", layout="c
 
 st.markdown("""
     <style>
-    /* 1. 전체 컨테이너를 가로로 꽉 채우고 줄바꿈 방지 */
+    /* 전체 요소 박스 모델 고정 */
+    *, *:before, *:after {
+        box-sizing: border-box !important;
+    }
+
+    /* 메인 컨테이너 패딩 조절 (타이틀 가려짐 방지) */
+    .block-container {
+        padding: 3rem 0.5rem 1rem 0.5rem !important;
+    }
+
+    /* 타이틀 스타일 */
+    .main-title {
+        text-align: center;
+        font-size: 1.6rem; /* 모바일 맞춤 크기 */
+        font-weight: 800;
+        color: #2E7D32;
+        margin-bottom: 10px;
+    }
+
+    /* 로또 행(Row) 컨테이너 최적화 */
     [data-testid="stHorizontalBlock"] {
         display: flex !important;
         flex-direction: row !important;
         flex-wrap: nowrap !important;
-        align-items: center !important; /* 수직 중앙 정렬 */
+        align-items: center !important;
         justify-content: flex-start !important;
-        gap: 0px !important;
+        gap: 2px !important; /* 미세한 간격 */
         width: 100% !important;
-        # overflow-x: hidden !important;     
+        max-width: 500px !important; /* 가로 모드 시 너무 퍼지지 않게 제한 */
+        margin: 0 auto !important;
+        overflow: visible !important;
     }
     
-    /* 2. 라벨 칸과 공 칸의 너비 최적화 */
+    /* 각 컬럼 너비 강제 조정 */
     [data-testid="column"] {
-        flex: 0 0 auto !important;
         padding: 0 !important;
         margin: 0 !important;
+        min-width: 0 !important; /* Streamlit 기본 최소폭 해제 */
     }
     
-    /* 라벨이 들어가는 첫 번째 칸 너비 */
+    /* 라벨 칸 (A 자동 등) */
     [data-testid="column"]:nth-child(1) {
-        width: 15px !important;
-        flex: 1 1 0% !important;
-        min-width: 0 !important;
+        flex: 0 0 52px !important; /* 라벨에 필요한 최소 너비 고정 */
     }
     
-    /* 공이 들어가는 나머지 칸들 너비 */
+    /* 공이 들어가는 나머지 칸들 */
     [data-testid="column"]:not(:nth-child(1)) {
-        width: auto !important;
-        flex: 1 1 0% !important;
-        min-width: 0 !important;
-    }
-
-    /* 3. 모바일 레이아웃 패딩 조절 */
-    .block-container {
-        padding-top: 3rem !important;
+        flex: 1 1 0% !important; /* 남은 공간을 정확히 1/6씩 배분 */
     }
     </style>
     """, unsafe_allow_html=True)
-
 
 
 
