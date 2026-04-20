@@ -105,7 +105,7 @@ if st.button("✨ 행운의 번호 생성하기", type="primary", use_container_
         
         # 1. 컬럼 구성 변경: 첫 칸은 라벨용(가로폭 60px), 나머지 6개는 공용(각 40px)
         # 비율을 직접 조절하기 위해 숫자를 포함한 리스트 사용
-        cols = st.columns([1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1]) 
+        cols = st.columns([1, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5]) 
         
         # 2. 첫 번째 칸에 라벨 배치 (수직 중앙 정렬을 위해 padding-top 추가)
         cols[0].markdown(f"<div style='padding-top:8px; font-weight:bold; font-size:14px;'>{label} 자동</div>", unsafe_allow_html=True)
