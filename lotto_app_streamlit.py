@@ -108,7 +108,7 @@ st.markdown("""
         text-align: center; 
         font-size: 28px;   /* 원하는 크기로 조절 (20px~28px 추천) */
         font-weight: 800; 
-        font-color: #000000
+        font-color: #000000;
         padding-bottom: 10px;
     '>
     🍀 민우동행 행운의 LOTTO 🍀
