@@ -76,6 +76,11 @@ st.markdown("""
         flex: 1 1 0% !important; /* 남은 공간을 정확히 1/6씩 배분 */
     }
             
+    /* 스피너(로딩) 텍스트 색상 및 스타일 강제 지정 */
+    div[data-testid="stMarkdownContainer"] p {
+        color: #000000 !important;
+    }
+
     /* 스피너 아이콘 옆의 텍스트 정밀 타겟팅 */
     .stElementContainer div[role="status"] {
         color: #000000 !important;
@@ -136,6 +141,8 @@ if st.button("✨ 행운의 번호 생성하기", type="primary", use_container_
     # 두 번째 대기 메시지 (with 문을 새로 열거나 내부에서 텍스트를 보여줌)
     with st.spinner('자! 공개 합니다 !!'):
         time.sleep(1.0)
+    
+
 
     # 이후에 번호 생성 로직(for 문)이 오면 됩니다.
     st.balloons() # 공개 직후 효과 추가
