@@ -137,27 +137,30 @@ st.write("---")
 # ... (상단 로직 동일)
 
 if st.button("✨ 행운의 번호 생성하기", type="primary", use_container_width=True):
-    # 1. 첫 번째 메시지
-    with st.markdown("<p style='color:black; font-weight:bold; text-align:center;'>과연...</p>", unsafe_allow_html=True):
-        time.sleep(1.5)
+    # 메시지를 담을 빈 공간 생성
+    msg_container = st.empty()
+    accumulated_msg = "" # 메시지를 누적할 변수
 
-    
-    # 2. 두 번째 메시지 누적
-    with st.markdown("<p style='color:black; font-weight:bold; text-align:center;'>당신의 행운의 추첨번호는...?</p>", unsafe_allow_html=True):
-        time.sleep(1.5)
+    # 메시지 리스트 정의 (출력할 문구와 대기 시간)
+    steps = [
+        ("과연...", 1.5),
+        ("당신의 행운의 추첨번호는...?", 1.5),
+        ("자!", 1.0),
+        ("공개 합니다 !!", 1.0)
+    ]
 
-    
-    # 3. 세 번째 메시지 누적
-    with st.markdown("<p style='color:black; font-weight:bold; text-align:center;'>자!</p>", unsafe_allow_html=True):
-        time.sleep(1.0)
+    for msg, delay in steps:
+        # spinner는 상태 표시줄처럼 잠깐 띄우고
+        with st.spinner(msg):
+            time.sleep(delay)
+        
+        # 기존 메시지에 새 메시지를 추가 (줄바꿈 포함)
+        accumulated_msg += f"<p style='color:black; font-weight:bold; text-align:center; margin:5px 0;'>{msg}</p>"
+        
+        # 빈 공간(msg_container)의 내용만 업데이트 (화면 덜컹거림 없음)
+        msg_container.markdown(f"<div>{accumulated_msg}</div>", unsafe_allow_html=True)
 
-    
-    # 4. 마지막 메시지 누적
-    with st.markdown("<p style='color:black; font-weight:bold; text-align:center; font-size:1.2rem;'>공개 합니다 !!</p>", unsafe_allow_html=True):
-        time.sleep(1.0)
-
-
-    # 이후 번호 생성 로직 실행
+    # 모든 메시지 출력 후 최종 효과
     st.balloons()
 
     
