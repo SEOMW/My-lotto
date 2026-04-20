@@ -125,11 +125,11 @@ st.write("---")
 if st.button("✨ 행운의 번호 생성하기", type="primary", use_container_width=True):
     # 첫 번째 대기 메시지
     with st.spinner('과연 당신의 행운의 추첨번호는...'):
-        time.sleep(1.0) # 0.5초보다 조금 더 길게 주면 긴장감이 생깁니다.
+        time.sleep(2.0) # 0.5초보다 조금 더 길게 주면 긴장감이 생깁니다.
         
     # 두 번째 대기 메시지 (with 문을 새로 열거나 내부에서 텍스트를 보여줌)
     with st.spinner('자! 공개 합니다 !!'):
-        time.sleep(0.8)
+        time.sleep(1.0)
 
     # 이후에 번호 생성 로직(for 문)이 오면 됩니다.
     st.balloons() # 공개 직후 효과 추가
@@ -142,7 +142,7 @@ if st.button("✨ 행운의 번호 생성하기", type="primary", use_container_
         cols = st.columns([1, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5]) 
         
         # 2. 첫 번째 칸에 라벨 배치 (수직 중앙 정렬을 위해 padding-top 추가)
-        cols[0].markdown(f"<div style='padding-top:8px; font-weight:bold; font-size:14px;', color: #000000;>{label} 자동</div>", unsafe_allow_html=True)
+        cols[0].markdown(f"<div style='padding-top:8px; font-weight:bold; font-size:14px; color: #000000;'>{label} 자동</div>", unsafe_allow_html=True)
         
         # 3. 나머지 칸에 공 배치
         for i, n in enumerate(nums):
@@ -168,4 +168,4 @@ if st.button("✨ 행운의 번호 생성하기", type="primary", use_container_
 
 
 st.write("---")
-st.caption("본 프로그램은 기계적 무작위성 알고리즘을 사용합니다.", color = '#000000')
+st.markdown("<p style='color: #333333; font-size: 0.8rem; opacity: 0.8; text-align: center;'>본 프로그램은 기계적 무작위성 알고리즘을 사용합니다.</p>", unsafe_allow_html=True)
