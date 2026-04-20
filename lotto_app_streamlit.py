@@ -39,13 +39,13 @@ st.markdown("""
     /* 라벨이 들어가는 첫 번째 칸 너비 */
     [data-testid="column"]:nth-child(1) {
         width: 65px !important;
-        min-width: 65px !important;
+        min-width: 15px !important;
     }
     
     /* 공이 들어가는 나머지 칸들 너비 */
     [data-testid="column"]:not(:nth-child(1)) {
         width: 38px !important;
-        min-width: 38px !important;
+        min-width: 10px !important;
     }
 
     /* 3. 모바일 레이아웃 패딩 조절 */
@@ -84,7 +84,7 @@ def get_color(n):
 st.markdown("""
     <h1 style='
         text-align: center; 
-        font-size: 24px;   /* 원하는 크기로 조절 (20px~28px 추천) */
+        font-size: 26px;   /* 원하는 크기로 조절 (20px~28px 추천) */
         font-weight: 800; 
         padding-bottom: 10px;
     '>
