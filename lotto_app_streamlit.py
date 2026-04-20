@@ -41,9 +41,6 @@ st.markdown("""
         color: #000000;
         margin-bottom: 10px;
     }
-    /* 모든 텍스트 기본값 검정 */
-    * { color: #000000; box-sizing: border-box !important; }
-    
 
     /* 로또 행(Row) 컨테이너 최적화 */
     [data-testid="stHorizontalBlock"] {
@@ -71,7 +68,7 @@ st.markdown("""
     /* 라벨 칸 (A 자동 등) */
     [data-testid="column"]:nth-child(1) {
         flex: 0 0 1px !important; /* 라벨에 필요한 최소 너비 고정 */
-        color: #000000;
+        # color: #000000;
     }
     
     /* 공이 들어가는 나머지 칸들 */
@@ -134,7 +131,8 @@ st.markdown("""
     </h1>
     """, unsafe_allow_html=True)
 
-st.write(f"현재 시간: {current_time}")
+st.markdown(f"<p style='color: #333333; font-size: 0.9rem;'>현재 시간: {current_time}</p>", unsafe_allow_html=True)
+# st.write(f"현재 시간: {current_time}")
 st.write("---")
 
 if st.button("✨ 행운의 번호 생성하기", type="primary", use_container_width=True):
@@ -158,7 +156,7 @@ if st.button("✨ 행운의 번호 생성하기", type="primary", use_container_
 
     # 2단계: 이전 메시지 삭제 후 "공개 합니다 !!" 강렬하게 노출
     with st.spinner(""):
-        time.sleep(2.0)
+        time.sleep(1.0)
     
     # msg_container 내용을 완전히 새로 써서 이전 내용을 지움
     msg_container.markdown("""
@@ -177,7 +175,7 @@ if st.button("✨ 행운의 번호 생성하기", type="primary", use_container_
         </style>
     """, unsafe_allow_html=True)
     
-    # time.sleep(0.5) # 강조된 메시지를 잠시 보여줌
+    time.sleep(1.2) # 강조된 메시지를 잠시 보여줌
     st.balloons()   # 축제 분위기 시작
 
     
