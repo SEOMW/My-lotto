@@ -131,7 +131,7 @@ st.markdown("""
     </h1>
     """, unsafe_allow_html=True)
 
-st.markdown(f"<p style='color: #333333; font-size: 0.9rem;'>현재 시간: {current_time}</p>", unsafe_allow_html=True)
+st.markdown(f"<p style='color: #333333; font-size: 1rem;'>현재 시간: {current_time}</p>", unsafe_allow_html=True)
 # st.write(f"현재 시간: {current_time}")
 st.write("---")
 
