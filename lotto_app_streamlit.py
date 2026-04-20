@@ -46,7 +46,8 @@ st.markdown("""
     /* 공이 들어가는 나머지 칸들 너비 */
     [data-testid="column"]:not(:nth-child(1)) {
         width: auto !important;
-        flex: 1 1 auto !important;;
+        flex: 1 1 0% !important;
+        min-width: 0 !important;
     }
 
     /* 3. 모바일 레이아웃 패딩 조절 */
