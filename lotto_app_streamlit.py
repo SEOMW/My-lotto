@@ -138,24 +138,24 @@ st.write("---")
 
 if st.button("✨ 행운의 번호 생성하기", type="primary", use_container_width=True):
     # 1. 첫 번째 메시지
-    with st.spinner('과연...'):
+    with st.markdown("<p style='color:black; font-weight:bold; text-align:center;'>과연...</p>", unsafe_allow_html=True):
         time.sleep(1.5)
-    st.markdown("<p style='color:black; font-weight:bold; text-align:center;'>과연...</p>", unsafe_allow_html=True)
+
     
     # 2. 두 번째 메시지 누적
-    with st.spinner('당신의 행운의 추첨번호는...?'):
+    with st.markdown("<p style='color:black; font-weight:bold; text-align:center;'>당신의 행운의 추첨번호는...?</p>", unsafe_allow_html=True):
         time.sleep(1.5)
-    st.markdown("<p style='color:black; font-weight:bold; text-align:center;'>당신의 행운의 추첨번호는...?</p>", unsafe_allow_html=True)
+
     
     # 3. 세 번째 메시지 누적
-    with st.spinner('자!'):
+    with st.markdown("<p style='color:black; font-weight:bold; text-align:center;'>자!</p>", unsafe_allow_html=True):
         time.sleep(1.0)
-    st.markdown("<p style='color:black; font-weight:bold; text-align:center;'>자!</p>", unsafe_allow_html=True)
+
     
     # 4. 마지막 메시지 누적
-    with st.spinner('공개 합니다 !!'):
+    with st.markdown("<p style='color:black; font-weight:bold; text-align:center; font-size:1.2rem;'>공개 합니다 !!</p>", unsafe_allow_html=True):
         time.sleep(1.0)
-    st.markdown("<p style='color:black; font-weight:bold; text-align:center; font-size:1.2rem;'>공개 합니다 !!</p>", unsafe_allow_html=True)
+
 
     # 이후 번호 생성 로직 실행
     st.balloons()
