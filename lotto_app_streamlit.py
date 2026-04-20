@@ -26,7 +26,7 @@ st.markdown("""
         align-items: center !important; /* 수직 중앙 정렬 */
         justify-content: flex-start !important;
         gap: 0px !important;
-        width: 100% !important;
+        width: 50% !important;
     }
     
     /* 2. 라벨 칸과 공 칸의 너비 최적화 */
@@ -84,7 +84,7 @@ def get_color(n):
 st.markdown("""
     <h1 style='
         text-align: center; 
-        font-size: 27px;   /* 원하는 크기로 조절 (20px~28px 추천) */
+        font-size: 28px;   /* 원하는 크기로 조절 (20px~28px 추천) */
         font-weight: 800; 
         padding-bottom: 10px;
     '>
