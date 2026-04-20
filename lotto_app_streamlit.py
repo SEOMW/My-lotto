@@ -144,7 +144,7 @@ if st.button("✨ 행운의 번호 생성하기", type="primary", use_container_
     # 1단계: 빌드업 메시지 누적 (과연... 부터 자! 까지)
     buildup_steps = [
         ("과연...", 1.2),
-        ("당신의 행운의 추첨번호는...?", 1.2),
+        ("당신의 행운 번호는...?", 1.2),
         ("자!", 0.8)
     ]
 
@@ -164,7 +164,7 @@ if st.button("✨ 행운의 번호 생성하기", type="primary", use_container_
         <div style='display:flex; flex-direction:column; align-items:center; justify-content:center; padding: 20px 0;'>
             <p style='color:#2E7D32; font-size:1.5rem; font-weight:900; text-align:center; 
             animation: pulse 1s infinite;'>
-            🎊 자! 공개 합니다 !! 🎊
+            🎊 !! 공개 합니다 !! 🎊
             </p>
         </div>
         <style>
