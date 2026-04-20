@@ -43,9 +43,9 @@ st.markdown("""
         flex-direction: row !important;
         flex-wrap: nowrap !important;
         align-items: center !important;
-        justify-content: center !important;
+        justify-content: flex-start !important;
         gap: 0px !important; /* 미세한 간격 */
-        width: 100% !important;
+        width: 25% !important;
         max-width: 500px !important; /* 가로 모드 시 너무 퍼지지 않게 제한 */
         margin: 0 auto !important;
         overflow: visible !important;
