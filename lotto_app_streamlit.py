@@ -53,9 +53,15 @@ st.markdown("""
     
     /* 각 컬럼 너비 강제 조정 */
     [data-testid="column"] {
+        flex: 1 1 0% !important; /* 👈 남은 공간을 균등하게 배분 */
+        min-width: 0 !important; /* 👈 좁은 화면에서 스스로 줄어들게 허용 */
         padding: 0 !important;
         margin: 0 !important;
-        min-width: 0 !important; /* Streamlit 기본 최소폭 해제 */
+        text-align: center !important;        flex: 1 1 0% !important; /* 👈 남은 공간을 균등하게 배분 */
+        min-width: 0 !important; /* 👈 좁은 화면에서 스스로 줄어들게 허용 */
+        padding: 0 !important;
+        margin: 0 !important;
+        text-align: center !important;
     }
     
     /* 라벨 칸 (A 자동 등) */
