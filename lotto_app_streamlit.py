@@ -120,7 +120,7 @@ st.markdown("""
     <h1 style='
         text-align: center; 
         color : #000000;
-        font-size: 28px;   /* 원하는 크기로 조절 (20px~28px 추천) */
+        font-size: 29px;   /* 원하는 크기로 조절 (20px~28px 추천) */
         font-weight: 800; 
         padding-bottom: 10px;
     '>
@@ -135,12 +135,17 @@ st.write("---")
 
 if st.button("✨ 행운의 번호 생성하기", type="primary", use_container_width=True):
     # 첫 번째 대기 메시지
-    with st.spinner('과연 당신의 행운의 추첨번호는...'):
+    with st.spinner('과연'):
+        time.sleep(2.0) # 0.5초보다 조금 더 길게 주면 긴장감이 생깁니다.
+
+    with st.spinner('당신의 행운의 추첨번호는...?'):
         time.sleep(2.0) # 0.5초보다 조금 더 길게 주면 긴장감이 생깁니다.
         
     # 두 번째 대기 메시지 (with 문을 새로 열거나 내부에서 텍스트를 보여줌)
     with st.spinner('자! 공개 합니다 !!'):
-        time.sleep(1.0)
+        time.sleep(2.0)
+    with st.spinner('공개 합니다 !!'):
+        time.sleep(2.0)
     
 
 
