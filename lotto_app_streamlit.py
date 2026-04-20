@@ -68,7 +68,7 @@ st.markdown("""
     /* 라벨 칸 (A 자동 등) */
     [data-testid="column"]:nth-child(1) {
         flex: 0 0 1px !important; /* 라벨에 필요한 최소 너비 고정 */
-        # color: #000000;
+        color: #000000;
     }
     
     /* 공이 들어가는 나머지 칸들 */
